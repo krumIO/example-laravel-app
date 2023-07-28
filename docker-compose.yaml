@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+
+  laravel-app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: laravel
+    restart: unless-stopped
+    # env_file: .env
+    ports:
+      - 8000:80
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
